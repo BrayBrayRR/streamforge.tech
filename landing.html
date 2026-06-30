@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamForge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0e13; --surface: #13181f; --border: #1f2733;
+      --accent: #3b82f6; --accent2: #06b6d4;
+      --text: #e8edf5; --muted: #8494a9; --white: #ffffff;
+    }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem 1.25rem;
+      -webkit-font-smoothing: antialiased;
+    }
+    .card {
+      width: 100%; max-width: 420px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.25rem 2rem;
+      text-align: center;
+    }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800; font-size: 1.5rem;
+      color: var(--white); letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+    .logo span { color: var(--accent); }
+    .tagline {
+      font-size: 0.8rem; color: var(--muted);
+      margin-bottom: 1.75rem;
+    }
+    .divider {
+      width: 100%; height: 1px;
+      background: var(--border);
+      margin: 1.75rem 0;
+    }
+    .offer {
+      font-size: 0.9rem; color: var(--text);
+      line-height: 1.6; margin-bottom: 1.75rem;
+    }
+    .offer strong { color: var(--white); font-weight: 600; }
+    .posts-label {
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 0.85rem;
+    }
+    .posts { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.75rem; }
+    .post {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .post strong { color: var(--text); font-weight: 500; display: block; margin-bottom: 0.2rem; }
+    .cta {
+      display: block; width: 100%;
+      background: var(--accent); color: var(--white);
+      padding: 0.85rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600; font-size: 0.95rem;
+      transition: opacity 0.15s;
+    }
+    .cta:hover { opacity: 0.85; }
+    .footer {
+      margin-top: 1.25rem;
+      font-size: 0.72rem; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">Stream<span>Forge</span></div>
+    <p class="tagline">AI outreach &amp; content for businesses that want to grow</p>
+
+    <div class="offer">
+      We help <strong>local businesses</strong> fill their pipeline with AI-powered outreach,
+      and write <strong>content &amp; personal branding</strong> for professionals
+      who want to stay visible without doing it themselves.
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="posts-label">Sample content we write</p>
+    <div class="posts">
+      <div class="post">
+        <strong>For a real estate agent</strong>
+        "3 things I tell every first-time buyer before they start touring homes — most agents skip #2 entirely."
+      </div>
+      <div class="post">
+        <strong>For a contractor</strong>
+        "We just finished a full kitchen remodel in 11 days. Here's exactly how we planned it — and what most crews get wrong."
+      </div>
+      <div class="post">
+        <strong>For a consultant</strong>
+        "The single question I ask every new client before we touch strategy. It changes everything about how we work together."
+      </div>
+    </div>
+
+    <a class="cta" href="https://calendly.com/outreach-streamforge/30min" target="_blank" rel="noopener">
+      Book a free 30-minute call →
+    </a>
+
+    <p class="footer">StreamForge LLC &nbsp;·&nbsp; outreach@streamforge.tech</p>
+  </div>
+</body>
+</html>
