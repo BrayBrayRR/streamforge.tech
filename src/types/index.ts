@@ -27,10 +27,34 @@ export interface Service {
   href: string;
 }
 
-export interface IndustryTeaser {
+export interface IndustryFaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface IndustryUseCase {
+  title: string;
+  description: string;
+}
+
+export interface IndustryWorkflowMessage {
+  sender: "lead" | "ai";
+  text: string;
+}
+
+export interface Industry {
   slug: string;
   name: string;
   painLine: string;
+  metaTitle: string;
+  metaDescription: string;
+  heroHeadline: string;
+  heroSubhead: string;
+  painPoints: string[];
+  workflowScenario: string;
+  workflowMessages: IndustryWorkflowMessage[];
+  useCases: IndustryUseCase[];
+  faqs: IndustryFaqItem[];
 }
 
 export interface ProductTeaser {
@@ -57,6 +81,26 @@ export interface CaseStudyCard {
 export interface FaqItem {
   question: string;
   answer: string;
+}
+
+export interface ServiceStep {
+  title: string;
+  description: string;
+}
+
+export interface ServicePageContent {
+  slug: string;
+  metaTitle: string;
+  metaDescription: string;
+  heroHeadline: string;
+  heroSubhead: string;
+  problemHeading: string;
+  problemBody: string;
+  problemPoints: string[];
+  howItWorks: ServiceStep[];
+  whoItsFor: { title: string; description: string }[];
+  proofPoints: { heading: string; description: string; source?: string; illustrative?: boolean }[];
+  faqs: FaqItem[];
 }
 
 export interface TimelineStep {
