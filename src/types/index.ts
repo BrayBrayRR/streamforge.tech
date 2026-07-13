@@ -166,3 +166,37 @@ export interface DemoPersona {
   crmEntry: string;
   notification: string;
 }
+
+export type ResourceCategory = "Guides" | "Playbooks" | "Templates" | "Checklists" | "Calculators";
+
+export interface ArticleSection {
+  heading: string;
+  paragraphs: string[];
+}
+
+export interface Article {
+  slug: string;
+  title: string;
+  category: ResourceCategory;
+  excerpt: string;
+  metaDescription: string;
+  sections: ArticleSection[];
+  relatedSlugs: string[];
+}
+
+export interface ComparisonRow {
+  criterion: string;
+  optionA: string;
+  optionB: string;
+}
+
+export interface Comparison {
+  slug: string;
+  title: string;
+  metaDescription: string;
+  optionALabel: string;
+  optionBLabel: string;
+  intro: string;
+  rows: ComparisonRow[];
+  verdict: string;
+}

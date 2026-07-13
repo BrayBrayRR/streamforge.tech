@@ -1,0 +1,29 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import ComparisonPage from "@/components/compare/ComparisonPage";
+import { comparisons } from "@/data/comparisons";
+
+export function generateStaticParams() {
+  return comparisons.map((comparison) => ({ slug: comparison.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const comparison = comparisons.find((c) => c.slug === slug);
+  if (!comparison) return {};
+  return {
+    title: comparison.title,
+    description: comparison.metaDescription,
+  };
+}
+
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const comparison = comparisons.find((c) => c.slug === slug);
+  if (!comparison) notFound();
+  return <ComparisonPage comparison={comparison} />;
+}

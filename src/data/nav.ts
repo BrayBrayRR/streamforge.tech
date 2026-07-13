@@ -41,6 +41,8 @@ export const footerNav = {
   Resources: [
     { label: "Guides & playbooks", href: "/resources" },
     { label: "ROI calculator", href: "/roi-calculator" },
+    { label: "AI follow-up vs. answering service", href: "/compare/ai-follow-up-vs-answering-service" },
+    { label: "AI follow-up vs. office admin", href: "/compare/ai-follow-up-vs-office-admin" },
   ],
   Company: [
     { label: "About", href: "/about" },
