@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { bookingUrl } from "@/data/nav";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Book a demo",
   description: "Book a free automation audit with StreamForge — see exactly where leads are slipping through.",
-};
+  path: "/book",
+});
 
 export default function BookPage() {
   return (

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ProductDetail from "@/components/automations/ProductDetail";
 import { products } from "@/data/products";
+import { buildMetadata } from "@/lib/metadata";
 
 const availableProducts = products.filter((p) => p.status === "available");
 
@@ -17,10 +18,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = availableProducts.find((p) => p.slug === slug);
   if (!product) return {};
-  return {
+  return buildMetadata({
     title: product.name,
     description: product.outcome,
-  };
+    path: `/automations/${product.slug}`,
+  });
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {

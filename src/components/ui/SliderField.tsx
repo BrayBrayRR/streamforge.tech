@@ -23,13 +23,18 @@ export default function SliderField({
   helper?: string;
   className?: string;
 }) {
+  const inputId = `slider-${label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
+
   return (
     <div className={cn("w-full", className)}>
       <div className="flex items-baseline justify-between gap-3">
-        <label className="text-sm font-medium text-foreground">{label}</label>
+        <label htmlFor={inputId} className="text-sm font-medium text-foreground">
+          {label}
+        </label>
         <span className="text-sm font-semibold text-accent">{formatValue(value)}</span>
       </div>
       <input
+        id={inputId}
         type="range"
         min={min}
         max={max}

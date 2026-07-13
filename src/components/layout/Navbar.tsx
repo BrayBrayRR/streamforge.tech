@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -38,15 +39,39 @@ export default function Navbar() {
           <nav className="hidden items-center gap-1 md:flex">
             {mainNav.map((item) =>
               item.children ? (
-                <div key={item.label} className="group relative">
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => setOpenDropdown(item.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                  onFocus={() => setOpenDropdown(item.label)}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                      setOpenDropdown(null);
+                    }
+                  }}
+                >
                   <button
                     type="button"
+                    aria-expanded={openDropdown === item.label}
                     className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-foreground-muted transition-colors hover:text-foreground"
                   >
                     {item.label}
-                    <ChevronDown className="size-3.5 transition-transform duration-200 group-hover:rotate-180" />
+                    <ChevronDown
+                      className={cn(
+                        "size-3.5 transition-transform duration-200",
+                        openDropdown === item.label && "rotate-180"
+                      )}
+                    />
                   </button>
-                  <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                  <div
+                    className={cn(
+                      "absolute left-0 top-full pt-2 transition-opacity duration-200",
+                      openDropdown === item.label
+                        ? "pointer-events-auto opacity-100"
+                        : "pointer-events-none opacity-0"
+                    )}
+                  >
                     <div className="glass w-72 rounded-2xl p-2">
                       {item.children.map((child) => (
                         <Link

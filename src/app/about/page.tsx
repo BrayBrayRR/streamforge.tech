@@ -3,12 +3,14 @@ import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 import LinkedInIcon from "@/components/visuals/LinkedInIcon";
 import { bookingUrl, socialLinks } from "@/data/nav";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
     "StreamForge is built by operators who automate real business operations — not marketers selling a demo.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

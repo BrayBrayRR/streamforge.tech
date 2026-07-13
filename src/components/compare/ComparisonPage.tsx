@@ -1,12 +1,21 @@
 import Reveal from "@/components/ui/Reveal";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
+import JsonLd from "@/components/seo/JsonLd";
 import { bookingUrl } from "@/data/nav";
+import { breadcrumbSchema } from "@/lib/schema";
 import type { Comparison } from "@/types";
 
 export default function ComparisonPage({ comparison }: { comparison: Comparison }) {
   return (
     <div className="mx-auto max-w-4xl px-6 py-16 sm:py-24">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Resources", path: "/resources" },
+          { name: comparison.title, path: `/compare/${comparison.slug}` },
+        ])}
+      />
       <Reveal>
         <p className="text-sm font-medium tracking-wide text-accent">Comparison</p>
         <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">

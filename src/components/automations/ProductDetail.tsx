@@ -7,7 +7,9 @@ import Button from "@/components/ui/Button";
 import Accordion from "@/components/ui/Accordion";
 import ProductWorkflowDiagram from "@/components/visuals/ProductWorkflowDiagram";
 import ProductCard from "@/components/automations/ProductCard";
+import JsonLd from "@/components/seo/JsonLd";
 import { products } from "@/data/products";
+import { productSchema, faqPageSchema, breadcrumbSchema } from "@/lib/schema";
 import type { Product } from "@/types";
 
 const platformLabel: Record<Product["platform"], string> = {
@@ -21,8 +23,26 @@ export default function ProductDetail({ product }: { product: Product }) {
     .map((slug) => products.find((p) => p.slug === slug))
     .filter((p): p is Product => Boolean(p));
 
+  const path = `/automations/${product.slug}`;
+
   return (
     <div>
+      <JsonLd
+        data={productSchema({
+          name: product.name,
+          description: product.overview ?? product.outcome,
+          url: `https://streamforge.tech${path}`,
+          priceLabel: product.priceLabel,
+        })}
+      />
+      {product.faqs && <JsonLd data={faqPageSchema(product.faqs)} />}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Automations", path: "/automations" },
+          { name: product.name, path },
+        ])}
+      />
       <section className="pt-16 pb-12 sm:pt-24 sm:pb-16">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>

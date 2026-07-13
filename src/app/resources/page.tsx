@@ -4,12 +4,14 @@ import { ArrowUpRight } from "lucide-react";
 import ResourcesHub from "@/components/resources/ResourcesHub";
 import GlassCard from "@/components/ui/GlassCard";
 import { comparisons } from "@/data/comparisons";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Resources",
   description:
     "Guides, playbooks, and calculators on automating lead follow-up and content for service businesses.",
-};
+  path: "/resources",
+});
 
 export default function ResourcesPage() {
   return (

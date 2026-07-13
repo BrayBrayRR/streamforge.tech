@@ -4,9 +4,11 @@ import Reveal from "@/components/ui/Reveal";
 import Badge from "@/components/ui/Badge";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
+import JsonLd from "@/components/seo/JsonLd";
 import { articles } from "@/data/articles";
 import { bookingUrl } from "@/data/nav";
 import { estimateReadingTime, cn } from "@/lib/utils";
+import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import type { Article } from "@/types";
 
 function slugifyHeading(heading: string) {
@@ -22,9 +24,24 @@ export default function ArticlePage({ article }: { article: Article }) {
   const related = article.relatedSlugs
     .map((slug) => articles.find((a) => a.slug === slug))
     .filter((a): a is Article => Boolean(a));
+  const path = `/resources/${article.slug}`;
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+      <JsonLd
+        data={articleSchema({
+          title: article.title,
+          description: article.metaDescription,
+          url: `https://streamforge.tech${path}`,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Resources", path: "/resources" },
+          { name: article.title, path },
+        ])}
+      />
       <div className="mx-auto max-w-3xl text-center">
         <Reveal>
           <div className="flex items-center justify-center gap-3">

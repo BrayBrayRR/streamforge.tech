@@ -5,12 +5,22 @@ import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import Accordion from "@/components/ui/Accordion";
 import { ChatBubble } from "@/components/visuals/ChatBubble";
+import JsonLd from "@/components/seo/JsonLd";
 import { bookingUrl } from "@/data/nav";
+import { faqPageSchema, breadcrumbSchema } from "@/lib/schema";
 import type { Industry } from "@/types";
 
 export default function IndustryPage({ industry }: { industry: Industry }) {
   return (
     <div>
+      <JsonLd data={faqPageSchema(industry.faqs)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Industries", path: "/industries" },
+          { name: industry.name, path: `/industries/${industry.slug}` },
+        ])}
+      />
       <section className="relative overflow-hidden pt-16 pb-16 sm:pt-24 sm:pb-20">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>

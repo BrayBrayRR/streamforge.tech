@@ -4,12 +4,21 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import Accordion from "@/components/ui/Accordion";
+import JsonLd from "@/components/seo/JsonLd";
 import { bookingUrl } from "@/data/nav";
+import { faqPageSchema, breadcrumbSchema } from "@/lib/schema";
 import type { ServicePageContent } from "@/types";
 
 export default function ServicePage({ content }: { content: ServicePageContent }) {
   return (
     <div>
+      <JsonLd data={faqPageSchema(content.faqs)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: `/services/${content.slug}` },
+        ])}
+      />
       <section className="relative overflow-hidden pt-16 pb-16 sm:pt-24 sm:pb-20">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>

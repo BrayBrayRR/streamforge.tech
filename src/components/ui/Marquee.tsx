@@ -36,6 +36,7 @@ export default function Marquee({
         {track.map((item, i) => (
           <span
             key={`${item.key}-${i}`}
+            aria-hidden={i >= items.length}
             className="shrink-0 text-lg font-medium tracking-tight text-foreground-muted"
           >
             {item.label}

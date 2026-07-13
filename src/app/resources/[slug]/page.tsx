@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ArticlePage from "@/components/resources/ArticlePage";
 import { articles } from "@/data/articles";
+import { buildMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return articles.map((article) => ({ slug: article.slug }));
@@ -15,10 +16,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const article = articles.find((a) => a.slug === slug);
   if (!article) return {};
-  return {
+  return buildMetadata({
     title: article.title,
     description: article.metaDescription,
-  };
+    path: `/resources/${article.slug}`,
+  });
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {

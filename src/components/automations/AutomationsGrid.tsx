@@ -52,6 +52,7 @@ export default function AutomationsGrid() {
           <Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-foreground-subtle" />
           <input
             type="text"
+            aria-label="Search automations"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search automations…"
@@ -60,6 +61,7 @@ export default function AutomationsGrid() {
         </div>
 
         <select
+          aria-label="Filter by category"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
           className="rounded-full border border-border-strong bg-white/[0.03] px-4 py-2.5 text-sm text-foreground focus:border-accent focus:outline-none"
@@ -72,6 +74,7 @@ export default function AutomationsGrid() {
         </select>
 
         <select
+          aria-label="Filter by platform"
           value={platform}
           onChange={(e) => setPlatform(e.target.value as PlatformFilter)}
           className="rounded-full border border-border-strong bg-white/[0.03] px-4 py-2.5 text-sm text-foreground focus:border-accent focus:outline-none"
@@ -84,6 +87,7 @@ export default function AutomationsGrid() {
         </select>
 
         <select
+          aria-label="Filter by pricing"
           value={price}
           onChange={(e) => setPrice(e.target.value as PriceFilter)}
           className="rounded-full border border-border-strong bg-white/[0.03] px-4 py-2.5 text-sm text-foreground focus:border-accent focus:outline-none"

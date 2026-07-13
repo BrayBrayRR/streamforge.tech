@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import AutomationsGrid from "@/components/automations/AutomationsGrid";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Automation library",
   description:
     "Ready-to-run n8n, Zapier, and Make workflows you install once and keep using — no subscription required.",
-};
+  path: "/automations",
+});
 
 export default function AutomationsPage() {
   return (

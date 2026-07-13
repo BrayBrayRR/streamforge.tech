@@ -3,12 +3,14 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { industries } from "@/data/industries";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Industries",
   description:
     "AI lead follow-up built around how your trade actually works — HVAC, plumbing, roofing, and more.",
-};
+  path: "/industries",
+});
 
 export default function IndustriesIndexPage() {
   return (

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Privacy policy",
   description: "How StreamForge collects, uses, and protects information.",
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

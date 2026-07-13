@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import RoiCalculator from "@/components/roi/RoiCalculator";
 import Button from "@/components/ui/Button";
 import { bookingUrl } from "@/data/nav";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "ROI calculator",
   description:
     "Estimate the revenue and labor savings from faster lead follow-up. Every assumption is shown, not hidden.",
-};
+  path: "/roi-calculator",
+});
 
 export default function RoiCalculatorPage() {
   return (

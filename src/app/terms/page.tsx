@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Terms of service",
   description: "The terms that apply to using StreamForge's website and services.",
-};
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (
