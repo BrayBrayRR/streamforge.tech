@@ -55,6 +55,10 @@ export const footerNav = {
 export const bookingUrl = "https://calendly.com/outreach-streamforge/30min";
 export const gumroadUrl = "https://streamforgetech.gumroad.com";
 
+// TODO: replace with the real Formspree form endpoint before launch —
+// create a form at https://formspree.io and swap this ID in.
+export const formspreeEndpoint = "https://formspree.io/f/REPLACE_WITH_FORM_ID";
+
 export const socialLinks = [
   { label: "LinkedIn — Brayden Jarrell", href: "https://www.linkedin.com/in/brayden-jarrell-457740328/" },
   { label: "LinkedIn — Joseph Belcher", href: "https://www.linkedin.com/in/joseph-belcher-88833b41a/" },

@@ -57,14 +57,33 @@ export interface Industry {
   faqs: IndustryFaqItem[];
 }
 
-export interface ProductTeaser {
+export interface ProductInstallStep {
+  title: string;
+  description: string;
+}
+
+export interface ProductFaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface Product {
   slug: string;
   name: string;
   category: string;
-  price: string;
+  platform: "n8n" | "zapier" | "make";
+  pricingType: "free" | "paid";
+  priceLabel: string;
   outcome: string;
-  href: string;
+  status: "available" | "coming-soon";
   badge?: string;
+  href?: string;
+  overview?: string;
+  whatItDoes?: string[];
+  requirements?: string[];
+  installSteps?: ProductInstallStep[];
+  faqs?: ProductFaqItem[];
+  relatedSlugs?: string[];
 }
 
 export interface CaseStudyCard {

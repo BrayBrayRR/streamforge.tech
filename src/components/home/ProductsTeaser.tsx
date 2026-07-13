@@ -33,7 +33,7 @@ export default function ProductsTeaser() {
                 </p>
               </div>
               <div className="mt-6 flex shrink-0 flex-col items-start gap-3 sm:mt-0 sm:items-end">
-                <p className="text-sm font-medium text-foreground">{flagshipProduct.price}</p>
+                <p className="text-sm font-medium text-foreground">{flagshipProduct.priceLabel}</p>
                 <Button href={flagshipProduct.href} external>
                   <Mail className="size-4" />
                   Get the workflow
